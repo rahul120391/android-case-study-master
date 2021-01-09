@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clickable="true"
+        android:background="@color/white"
+        android:focusable="true"
+        tools:context=".view.fragments.DealItemFragment">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnAddToList"
+            android:layout_width="@dimen/dimen_0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/alto"
+            android:fontFamily="@font/roboto_regular"
+            android:gravity="center"
+            android:padding="@dimen/dimen_10dp"
+            android:text="@string/add_to_list"
+            android:textColor="@color/tunDora"
+            android:textSize="@dimen/dimen_18dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/btnAddToCart"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:ignore="SpUsage" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnAddToCart"
+            android:layout_width="@dimen/dimen_0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/guardsManRed"
+            android:fontFamily="@font/roboto_regular"
+            android:gravity="center"
+            android:padding="@dimen/dimen_10dp"
+            android:text="@string/add_to_cart"
+            android:textColor="@color/white"
+            android:textSize="@dimen/dimen_18dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/btnAddToList"
+            tools:ignore="SpUsage" />
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="@dimen/dimen_0dp"
+            android:layout_height="@dimen/dimen_0dp"
+            app:layout_constraintBottom_toTopOf="@+id/btnAddToList"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="@dimen/dimen_16dp">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/imgDeal"
+                    android:layout_width="@dimen/dimen_250dp"
+                    android:layout_height="@dimen/dimen_400dp"
+                    android:layout_marginTop="@dimen/dimen_32dp"
+                    android:adjustViewBounds="true"
+                    android:scaleType="centerCrop"
+                    android:src="@mipmap/ic_launcher"
+                    app:layout_constraintBottom_toTopOf="@+id/txtSalePrice"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/txtSalePrice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_32dp"
+                    android:fontFamily="@font/roboto_medium"
+                    android:textColor="@color/guardsManRed"
+                    android:textSize="@dimen/dimen_32dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/imgDeal"
+                    tools:ignore="SpUsage"
+                    tools:text="$8.99" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/txtRegularPrice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_regular"
+                    android:text="@string/reg"
+                    android:textColor="@color/silver_chalice"
+                    android:textSize="@dimen/dimen_24dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/txtSalePrice"
+                    app:layout_constraintEnd_toStartOf="@+id/txtRegularPriceValue"
+                    tools:ignore="SpUsage" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/txtRegularPriceValue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_medium"
+                    android:textColor="@color/silver_chalice"
+                    android:textSize="@dimen/dimen_24dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/txtSalePrice"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    tools:ignore="SpUsage"
+                    tools:text="$17.0" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/txtDealTitle"
+                    android:layout_width="@dimen/dimen_0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_10dp"
+                    android:fontFamily="@font/roboto_light"
+                    android:textColor="@color/tunDora"
+                    android:textSize="@dimen/dimen_24dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txtSalePrice"
+                    tools:ignore="SpUsage"
+                    tools:text="Tiered Lace Tank - Lily star" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/txtDescription"
+                    android:layout_width="@dimen/dimen_0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_5dp"
+                    android:textColor="@color/diesel"
+                    android:lineSpacingMultiplier="1.2"
+                    android:textSize="@dimen/dimen_12dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txtDealTitle"
+                    tools:ignore="SpUsage"
+                    tools:text="Lorem Ispum, Lorem Ispum" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

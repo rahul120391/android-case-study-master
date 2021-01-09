@@ -1,0 +1,90 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+    ext.kotlin_version = "1.4.21"
+    repositories {
+        google()
+        jcenter()
+        
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:4.1.1'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath 'com.google.dagger:hilt-android-gradle-plugin:2.28-alpha'
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+        
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
+
+ext{
+    compileSdkVersion = 30
+    minSdkVersion = 21
+    targetSdkVersion = 30
+    buildToolVersion = "30.0.2"
+    versionCode = 1
+    versionName = "1.0"
+    appId = "com.target.targetcasestudy"
+    appCompatVersion = '1.2.0'
+    constraintLayoutVersion = '2.0.4'
+    junitVersion = '4.13'
+    junitExtVersion = '1.1.2'
+    espressoVersion = '3.3.0'
+    viewModelLiveDataVersion = '2.2.0'
+    coreKtxVersion = '1.5.0-alpha05'
+    googleMaterialVersion = '1.2.1'
+    roomVersion = '2.3.0-alpha02'
+    hiltVersion = '2.28-alpha'
+    hiltAndroidXVersion = '1.0.0-alpha01'
+    retrofitVersion = '2.9.0'
+    okHttpVersion = '4.8.1'
+    coroutinesVersion = '1.4.1'
+    gsonVersion = '2.8.6'
+    glideVersion = '4.11.0'
+    swipeToRefreshVersion = '1.1.0'
+
+    supportDependencies = [
+            appCompatLibDependency        : "androidx.appcompat:appcompat:$appCompatVersion",
+            constraintLayoutLibDependency : "androidx.constraintlayout:constraintlayout:$constraintLayoutVersion",
+            junitLibDependency            : "junit:junit:$junitVersion",
+            junitExtLibDependency         : "androidx.test.ext:junit:$junitExtVersion",
+            espressoLibDependency         : "androidx.test.espresso:espresso-core:$espressoVersion",
+            viewModelDependency           : "androidx.lifecycle:lifecycle-viewmodel-ktx:$viewModelLiveDataVersion",
+            liveDataDependency            : "androidx.lifecycle:lifecycle-livedata-ktx:$viewModelLiveDataVersion",
+            lifeCycleRuntimeDep           : "androidx.lifecycle:lifecycle-runtime-ktx:$viewModelLiveDataVersion",
+            lifeCycleDependency           : "androidx.lifecycle:lifecycle-common-java8:$viewModelLiveDataVersion",
+            coreKtxDependency             : "androidx.core:core-ktx:$coreKtxVersion",
+            googleMaterialDependency      : "com.google.android.material:material:$googleMaterialVersion",
+            swipeToRefreshLibDependency   : "androidx.swiperefreshlayout:swiperefreshlayout:$swipeToRefreshVersion",
+            hiltRuntimeDependency         : "com.google.dagger:hilt-android:$hiltVersion",
+            hiltComplieDependency         : "com.google.dagger:hilt-android-compiler:$hiltVersion",
+            hiltAndroidXDependency        : "androidx.hilt:hilt-compiler:$hiltAndroidXVersion",
+            hiltViewModelDependency       : "androidx.hilt:hilt-lifecycle-viewmodel:$hiltAndroidXVersion",
+            roomRuntimeKtxLibDependency   : "androidx.room:room-ktx:$roomVersion",
+            roomCompileLibDependency      : "androidx.room:room-compiler:$roomVersion"
+    ]
+
+    thirdPartyDependency = [
+            retrofitLibDependency            : "com.squareup.retrofit2:retrofit:$retrofitVersion",
+            retrofitConvertorDependency      : "com.squareup.retrofit2:converter-gson:$retrofitVersion",
+            gsonLibDependency                : "com.google.code.gson:gson:$gsonVersion",
+            okHttpLibDependency              : "com.squareup.okhttp3:okhttp:$okHttpVersion",
+            okHttpLoggingDependency          : "com.squareup.okhttp3:logging-interceptor:$okHttpVersion",
+            coroutinesCoreLibDependency      : "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion",
+            coroutinesAndroidLibDependency   : "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutinesVersion",
+            glideRuntimeLibDependency        : "com.github.bumptech.glide:glide:$glideVersion",
+            glideCompileLibDependency        : "com.github.bumptech.glide:compiler:$glideVersion"
+    ]
+
+}

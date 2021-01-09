@@ -1,0 +1,70 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'dagger.hilt.android.plugin'
+apply plugin: 'org.jetbrains.kotlin.android'
+apply plugin: 'kotlin-parcelize'
+android {
+
+  compileSdkVersion rootProject.ext.compileSdkVersion
+  buildToolsVersion rootProject.ext.buildToolVersion
+
+  defaultConfig {
+    applicationId rootProject.ext.appId
+    minSdkVersion rootProject.ext.minSdkVersion
+    targetSdkVersion rootProject.ext.targetSdkVersion
+    versionCode rootProject.ext.versionCode
+    versionName rootProject.ext.versionName
+    testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+  }
+
+  compileOptions {
+    sourceCompatibility JavaVersion.VERSION_1_8
+    targetCompatibility JavaVersion.VERSION_1_8
+  }
+
+  buildFeatures {
+    dataBinding true
+  }
+
+  buildTypes {
+    release {
+      minifyEnabled false
+      proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+    }
+  }
+}
+
+dependencies {
+  implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+  //Support Dependencies
+  implementation supportDependencies.appCompatLibDependency
+  implementation supportDependencies.constraintLayoutLibDependency
+  implementation supportDependencies.swipeToRefreshLibDependency
+  testImplementation supportDependencies.junitLibDependency
+  androidTestImplementation supportDependencies.junitExtLibDependency
+  androidTestImplementation supportDependencies.espressoLibDependency
+  implementation supportDependencies.viewModelDependency
+  implementation supportDependencies.liveDataDependency
+  implementation supportDependencies.lifeCycleDependency
+  implementation supportDependencies.lifeCycleRuntimeDep
+  implementation supportDependencies.coreKtxDependency
+  implementation supportDependencies.googleMaterialDependency
+  implementation supportDependencies.hiltRuntimeDependency
+  implementation supportDependencies.hiltViewModelDependency
+  kapt supportDependencies.hiltAndroidXDependency
+  kapt supportDependencies.hiltComplieDependency
+  implementation supportDependencies.roomRuntimeKtxLibDependency
+  kapt supportDependencies.roomCompileLibDependency
+
+  //Third party Library Dependency
+  implementation thirdPartyDependency.glideRuntimeLibDependency
+  kapt thirdPartyDependency.glideCompileLibDependency
+  implementation thirdPartyDependency.retrofitLibDependency
+  implementation thirdPartyDependency.retrofitConvertorDependency
+  implementation thirdPartyDependency.okHttpLibDependency
+  implementation thirdPartyDependency.okHttpLoggingDependency
+  implementation thirdPartyDependency.coroutinesCoreLibDependency
+  implementation thirdPartyDependency.coroutinesAndroidLibDependency
+}

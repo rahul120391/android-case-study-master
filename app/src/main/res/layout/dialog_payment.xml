@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+<androidx.constraintlayout.widget.ConstraintLayout
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:padding="@dimen/dimen_16dp">
+
+  <androidx.appcompat.widget.AppCompatTextView
+    android:id="@+id/txtTitle"
+    style="@style/TextAppearance.AppCompat.Title"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="@string/credit_card_payment_title"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent" />
+
+  <androidx.appcompat.widget.AppCompatTextView
+    android:id="@+id/txtSubtitle"
+    style="@style/TextAppearance.AppCompat.Subhead"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="@string/credit_card_payment_subtitle"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/txtTitle" />
+
+  <androidx.appcompat.widget.AppCompatEditText
+    android:id="@+id/etCardNumber"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="4dp"
+    android:hint="@string/credit_card_number_hint"
+    android:importantForAutofill="no"
+    android:inputType="number"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/txtSubtitle" />
+
+  <androidx.appcompat.widget.AppCompatButton
+    android:id="@+id/btnSubmit"
+    style="@style/Widget.AppCompat.Button.ButtonBar.AlertDialog"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="8dp"
+    android:text="@string/submit"
+    android:enabled="false"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/etCardNumber" />
+
+  <androidx.appcompat.widget.AppCompatButton
+    android:id="@+id/btnCancel"
+    style="@style/Widget.AppCompat.Button.ButtonBar.AlertDialog"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="8dp"
+    android:layout_marginEnd="8dp"
+    android:text="@string/cancel"
+    app:layout_constraintEnd_toStartOf="@+id/btnSubmit"
+    app:layout_constraintTop_toBottomOf="@+id/etCardNumber" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
