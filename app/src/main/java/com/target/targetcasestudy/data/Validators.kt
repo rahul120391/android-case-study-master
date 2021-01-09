@@ -29,27 +29,25 @@ fun validateCreditCard(creditCardNumber: String): Boolean {
     if (creditCardNumber.length < 13 || creditCardNumber.length > 19) {
         return false
     }
-    val lastDigit = creditCardNumber[creditCardNumber.length - 1].toString().toInt()
-    val ints = IntArray(creditCardNumber.length - 1)
-    for(i in 0..creditCardNumber.length-2){
-        ints[i] = creditCardNumber[i].toString().toInt()
+    val ints = IntArray(creditCardNumber.length)
+    for (i in creditCardNumber.indices) {
+        ints[i] = creditCardNumber.substring(i, i + 1).toInt()
     }
-    ints.reverse()
-    var x =0
-    while(x<ints.size){
-        ints[x] = ints[x]*2
-        x+=2
-    }
-    for(i in ints.indices){
-        if(ints[i]>9){
-            ints[i] = ints[i]-9
+    var i = ints.size - 2
+    while (i >= 0) {
+        var j = ints[i]
+        j *= 2
+        if (j > 9) {
+            j = j % 10 + 1
         }
+        ints[i] = j
+        i -= 2
     }
     var sum = 0
-    for(i in ints.indices){
-        sum+=ints[i]
+    for (x in ints.indices) {
+        sum += ints[x]
     }
-    val mod = sum%10
-    return mod==lastDigit
+    val mod = sum % 10
+    return mod == 0
 }
 
