@@ -74,7 +74,17 @@ class DealListFragment : BaseFragment<FragmentDealListBinding>() {
                 binding?.swipeToRefresh?.isRefreshing=false
                 when (it) {
                     Status.NoInternet -> {
-                        (activity as? MainActivity)?.showMessage(getString(R.string.no_internet_connection))
+                        binding?.apply {
+                            if(rvDeals.isGone()){
+                                txtError.apply {
+                                    visible()
+                                    text = getString(R.string.internet_connection_error)
+                                }
+                            }
+                            else{
+                                (activity as? MainActivity)?.showMessage(getString(R.string.no_internet_connection))
+                            }
+                        }
                     }
                     is Status.Error -> {
                         binding?.apply {
