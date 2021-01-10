@@ -60,14 +60,15 @@ class DealListFragment : BaseFragment<FragmentDealListBinding>() {
 
     private fun setUpSwipeToRefresh() {
         binding?.swipeToRefresh?.setOnRefreshListener {
-                  showProgressLayout()
                   fetchList(isRefreshing = true)
         }
     }
 
     private fun fetchList(isRefreshing:Boolean) {
         lifecycleScope.launch {
-            showProgressLayout()
+            if(binding?.swipeToRefresh?.isRefreshing==false){
+                showProgressLayout()
+            }
             (activity as? MainActivity)?.viewModel?.getDealsData(isRefreshing)?.collectLatest {
                 hideProgressLayout()
                 binding?.swipeToRefresh?.isRefreshing=false
