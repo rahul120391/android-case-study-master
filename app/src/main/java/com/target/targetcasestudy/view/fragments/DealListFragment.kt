@@ -1,13 +1,12 @@
 package com.target.targetcasestudy.view.fragments
 
 import android.os.Bundle
-import android.view.View
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.target.targetcasestudy.Constants.DEAL_DATA
-import com.target.targetcasestudy.Constants.DEAL_DETAIL_FRAGMENT
+import com.target.targetcasestudy.constants.Constants.DEAL_DATA
+import com.target.targetcasestudy.constants.Constants.DEAL_DETAIL_FRAGMENT
 import com.target.targetcasestudy.R
 import com.target.targetcasestudy.base.BaseFragment
 import com.target.targetcasestudy.dataModel.Product
@@ -19,7 +18,6 @@ import com.target.targetcasestudy.extensions.visible
 import com.target.targetcasestudy.view.activities.MainActivity
 import com.target.targetcasestudy.view.adapters.DealItemAdapter
 import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
@@ -76,10 +74,16 @@ class DealListFragment : BaseFragment<FragmentDealListBinding>() {
                     Status.NoInternet -> {
                         binding?.apply {
                             if(rvDeals.isGone()){
-                                txtError.apply {
+                                val text=txtError.apply {
                                     visible()
                                     text = getString(R.string.internet_connection_error)
                                 }
+
+                                val result=txtError.run {
+                                    text.text
+                                }
+
+
                             }
                             else{
                                 (activity as? MainActivity)?.showMessage(getString(R.string.no_internet_connection))

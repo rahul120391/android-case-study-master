@@ -1,4 +1,4 @@
-package com.target.targetcasestudy
+package com.target.targetcasestudy.constants
 
 object Constants {
 

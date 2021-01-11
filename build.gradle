@@ -41,6 +41,7 @@ ext{
     junitVersion = '4.13'
     junitExtVersion = '1.1.2'
     espressoVersion = '3.3.0'
+    mockitoCoreVersion = '3.7.0'
     viewModelLiveDataVersion = '2.2.0'
     coreKtxVersion = '1.5.0-alpha05'
     googleMaterialVersion = '1.2.1'
@@ -53,6 +54,8 @@ ext{
     gsonVersion = '2.8.6'
     glideVersion = '4.11.0'
     swipeToRefreshVersion = '1.1.0'
+    kotlinCoroutineTestVersion = '1.4.2'
+    androidXArchTestVersion = '2.1.0'
 
     supportDependencies = [
             appCompatLibDependency        : "androidx.appcompat:appcompat:$appCompatVersion",
@@ -60,6 +63,9 @@ ext{
             junitLibDependency            : "junit:junit:$junitVersion",
             junitExtLibDependency         : "androidx.test.ext:junit:$junitExtVersion",
             espressoLibDependency         : "androidx.test.espresso:espresso-core:$espressoVersion",
+            mockitoLibDependency          : "org.mockito:mockito-core:$mockitoCoreVersion",
+            kotlinCoroutineTestDependency : "org.jetbrains.kotlinx:kotlinx-coroutines-test:$kotlinCoroutineTestVersion",
+            androidXarchTestDependency    : "androidx.arch.core:core-testing:$androidXArchTestVersion",
             viewModelDependency           : "androidx.lifecycle:lifecycle-viewmodel-ktx:$viewModelLiveDataVersion",
             liveDataDependency            : "androidx.lifecycle:lifecycle-livedata-ktx:$viewModelLiveDataVersion",
             lifeCycleRuntimeDep           : "androidx.lifecycle:lifecycle-runtime-ktx:$viewModelLiveDataVersion",

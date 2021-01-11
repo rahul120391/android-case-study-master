@@ -4,8 +4,8 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import com.target.targetcasestudy.BR
-import com.target.targetcasestudy.Constants.CREDIT_CARD_VALIDATION
-import com.target.targetcasestudy.Constants.DEAL_LIST_FRAGMENT
+import com.target.targetcasestudy.constants.Constants.CREDIT_CARD_VALIDATION
+import com.target.targetcasestudy.constants.Constants.DEAL_LIST_FRAGMENT
 import com.target.targetcasestudy.R
 import com.target.targetcasestudy.base.BaseActivity
 import com.target.targetcasestudy.databinding.ActivityMainBinding

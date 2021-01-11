@@ -3,7 +3,7 @@ package com.target.targetcasestudy.view.fragments
 
 import android.os.Bundle
 import android.view.View
-import com.target.targetcasestudy.Constants.DEAL_DATA
+import com.target.targetcasestudy.constants.Constants.DEAL_DATA
 import com.target.targetcasestudy.R
 import com.target.targetcasestudy.base.BaseFragment
 import com.target.targetcasestudy.dataModel.Product

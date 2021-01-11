@@ -43,6 +43,9 @@ dependencies {
   implementation supportDependencies.constraintLayoutLibDependency
   implementation supportDependencies.swipeToRefreshLibDependency
   testImplementation supportDependencies.junitLibDependency
+  testImplementation supportDependencies.mockitoLibDependency
+  testImplementation supportDependencies.kotlinCoroutineTestDependency
+  testImplementation supportDependencies.androidXarchTestDependency
   androidTestImplementation supportDependencies.junitExtLibDependency
   androidTestImplementation supportDependencies.espressoLibDependency
   implementation supportDependencies.viewModelDependency
