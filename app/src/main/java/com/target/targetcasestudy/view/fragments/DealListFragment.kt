@@ -74,16 +74,10 @@ class DealListFragment : BaseFragment<FragmentDealListBinding>() {
                     Status.NoInternet -> {
                         binding?.apply {
                             if(rvDeals.isGone()){
-                                val text=txtError.apply {
+                                txtError.apply {
                                     visible()
                                     text = getString(R.string.internet_connection_error)
                                 }
-
-                                val result=txtError.run {
-                                    text.text
-                                }
-
-
                             }
                             else{
                                 (activity as? MainActivity)?.showMessage(getString(R.string.no_internet_connection))

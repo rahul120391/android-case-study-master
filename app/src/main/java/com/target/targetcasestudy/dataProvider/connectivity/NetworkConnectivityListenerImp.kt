@@ -1,15 +1,18 @@
 package com.target.targetcasestudy.dataProvider.connectivity
 
+import android.content.Context
 import android.net.ConnectivityManager
 import android.net.Network
-import com.target.targetcasestudy.utils.Utility
+import com.target.targetcasestudy.utils.NetworkUtility
+import dagger.hilt.android.qualifiers.ActivityContext
+import dagger.hilt.android.qualifiers.ApplicationContext
 import javax.inject.Inject
 
-class NetworkConnectivityListenerImp @Inject constructor(): ConnectivityManager.NetworkCallback() {
+class NetworkConnectivityListenerImp @Inject constructor(context: Context): ConnectivityManager.NetworkCallback() {
 
     var isAvailable = false
     init {
-        Utility.registerNetworkCallback(this)
+        NetworkUtility.registerNetworkCallback(context,this)
     }
     override fun onAvailable(network: Network) {
         super.onAvailable(network)
