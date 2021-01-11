@@ -46,7 +46,7 @@ class MainActivityViewModelTest {
     }
 
     @Test
-    fun testForSuccessResponse(){
+    fun testForSuccessResponseInCaseOfNonEmptyList(){
         testCoroutineRule.runBlockingTest {
             val dummyPositiveResultFlow = flow<Status> {
                 val regularPrice = mock(RegularPrice::class.java)
@@ -58,16 +58,31 @@ class MainActivityViewModelTest {
                     title = DUMMY_DEAL_TITLE,
                 regular_price = regularPrice,
                 sale_price = salesPrice)
-                val list = listOf(product)
+                val list = mock(listOf(product)::class.java)
                 emit(Status.Response(list))
             }
             Mockito.lenient().`when`(dealUseCase.executeUseCase(false)).thenReturn(dummyPositiveResultFlow)
-            var result = listOf<Product>()
             dealUseCase.executeUseCase(false).collectLatest {
-                result = (it as Status.Response).dealList?: emptyList()
+                val result = (it as Status.Response).dealList?: emptyList()
+                Assert.assertTrue(result.isNotEmpty())
             }
-            Assert.assertTrue(result.isNotEmpty())
+
          }
+    }
+
+    @Test
+    fun testForSuccessResponseInCaseOfEmptyList(){
+        testCoroutineRule.runBlockingTest {
+            val dummyPositiveResultFlow = flow<Status> {
+                emit(Status.Response(emptyList()))
+            }
+            Mockito.lenient().`when`(dealUseCase.executeUseCase(false)).thenReturn(dummyPositiveResultFlow)
+            dealUseCase.executeUseCase(false).collectLatest {
+                val result = (it as Status.Response).dealList?: emptyList()
+                Assert.assertTrue(result.isEmpty())
+            }
+
+        }
     }
 
     @Test
